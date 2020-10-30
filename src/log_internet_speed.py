@@ -9,7 +9,7 @@ import plotly.express as px
 con = sl.connect('records.sqlite3')
 
 SQL = 'INSERT INTO SPEEDS (timestamp, download, upload, ping) VALUES (?,?,?,?)'
-os.environ['SPEEDTEST_CMD'] = r'C:\ProgramData\Miniconda3\envs\home-server-env\Scripts\speedtest-cli'
+# os.environ['SPEEDTEST_CMD'] = r'C:\ProgramData\Miniconda3\envs\home-server-env\Scripts\speedtest-cli'
 SPEEDTEST_CMD = os.environ.get('SPEEDTEST_CMD')
 LOG_FILE = 'speedtest.log'
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO,
