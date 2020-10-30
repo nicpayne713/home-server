@@ -2,9 +2,7 @@ import logging
 import os
 import sqlite3 as sl
 import datetime
-import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib import dates, rcParams
 import plotly.express as px
 
 
@@ -73,34 +71,34 @@ def read_data():
     return df
 
 
-def create_plot(df):
-    plot_file_name = 'bandwidth.png'
-    rcParams['xtick.labelsize'] = 'xx-small'
-
-    plt.plot(df['timestamp'], df['download'], 'b-')
-    plt.title('1519 W.Taylor St Xfinity Bandwidth Report')
-    plt.ylabel('Bandwidth in MBps')
-    plt.yticks(range(0, 401, 20))
-    plt.ylim(0.0, 400.0)
-
-    plt.xlabel('Date/Time')
-    plt.xticks(rotation='45')
-
-    plt.grid()
-
-    current_axes = plt.gca()
-    current_figure = plt.gcf()
-
-    hfmt = dates.DateFormatter('%m/%d %H:%M:%S')
-    current_axes.xaxis.set_major_formatter(hfmt)
-    current_figure.subplots_adjust(bottom=.25)
-
-    loc = current_axes.xaxis.get_major_locator()
-    loc.maxticks[dates.HOURLY] = 24
-    loc.maxticks[dates.MINUTELY] = 60
-
-    current_figure.savefig(plot_file_name)
-    current_figure.show()
+# def create_plot(df):
+#     plot_file_name = 'bandwidth.png'
+#     rcParams['xtick.labelsize'] = 'xx-small'
+#
+#     plt.plot(df['timestamp'], df['download'], 'b-')
+#     plt.title('1519 W.Taylor St Xfinity Bandwidth Report')
+#     plt.ylabel('Bandwidth in MBps')
+#     plt.yticks(range(0, 401, 20))
+#     plt.ylim(0.0, 400.0)
+#
+#     plt.xlabel('Date/Time')
+#     plt.xticks(rotation='45')
+#
+#     plt.grid()
+#
+#     current_axes = plt.gca()
+#     current_figure = plt.gcf()
+#
+#     hfmt = dates.DateFormatter('%m/%d %H:%M:%S')
+#     current_axes.xaxis.set_major_formatter(hfmt)
+#     current_figure.subplots_adjust(bottom=.25)
+#
+#     loc = current_axes.xaxis.get_major_locator()
+#     loc.maxticks[dates.HOURLY] = 24
+#     loc.maxticks[dates.MINUTELY] = 60
+#
+#     current_figure.savefig(plot_file_name)
+#     current_figure.show()
 
 
 if __name__ == '__main__':
