@@ -2,3 +2,4 @@ speedtest-cli
 pandas
 plotly
 diagrams
+psutil
