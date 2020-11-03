@@ -5,7 +5,7 @@ import plotly.express as px
 
 
 def make_fig():
-    con = sl.connect('src/records.sqlite3')
+    con = sl.connect('records.sqlite3')
 
     df = pd.read_sql_query("select * from speeds;", con)
 
