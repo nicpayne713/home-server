@@ -65,6 +65,7 @@ if __name__ == '__main__':
     except:
         pass
 
-    while True:
+    for _ in range(5):
         main()
-        time.sleep(300)  # get measurement every 5 minutes
+
+
