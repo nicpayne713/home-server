@@ -96,3 +96,6 @@ Followed [this tutorial](https://linuxhint.com/nginx_reverse_proxy/)
 
 ### VPN
 Codename `nightshade`. In order for wireguard to properly resolve the IP address of our router for the VPN the CNAME can't use the cloudflare proxy, so cloudflare only has the DNS service setup (grey cloud, not the orange cloud)
+
+### Cloudflare
+The Dynamic DNS service is actually solved by using [this repo](https://github.com/adrienbrignon/cloudflare-ddns.git) where the Python script runs on the Nginx container.
