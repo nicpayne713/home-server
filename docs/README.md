@@ -31,12 +31,24 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 - Nginx
 - General Ubuntu VM
 - VPN (wireguard)
+- Duplicati
+- Heimdall
+- Home Assistant
+- Netdata
 
 ### FreeNAS
 The FreeNAS box runs the open source FreeNAS software and is the host for our cloud. Currently it is a simple ZFS mirror for our main data. There is another pool for the Piwigo gallery that uses its own HDD.
 User accounts can be accessed with the root login under System/Users.
 
-To hose our services publicly our router is set up with port-forwarding for port 80 and 443 to the Nginx IP where it handles all the reverse proxy stuff.
+To host our services publicly our router is set up with port-forwarding for port 80 and 443 to the Nginx IP where it handles all the reverse proxy stuff.
+
+FreeNAS also takes nightly snapshots of all the ZFS datasets. We have datasets set up so that backups are somewhat organized.
+**Datasets**
+- home
+- movies-and-music
+- photos-videos
+
+In the event that data is lost we can restore datasets easily with the ZFS snapshot restore. They are divied up this way so that if we have an issue with movies we can restore those in `movies-and-music` without fear of messing anything up in the `home` dataset, and so on.
 
 ### Network on the FreeNAS
 I set up all virtual machines ver similarly with the network configuration so that public facing services like Jellyfin and the Piwigo gallery can sit behind the Nginx reverse proxy. The iamge I've used for installin the Ubuntu 18.04 Server OS seems to have an issue with with network setup on installation but the steps to fix are pretty easy.
