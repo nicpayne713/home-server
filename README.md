@@ -4,6 +4,9 @@ Home Server Note
 Welcome to the PaynePride home server notes page!
 Here is where I keep track of set-up notes, known technical challenges, reset notes, etc.
 
+![diagram](/docs/home-server-connectivity.png "Network")
+
+
 | Static Ip Address | | |
 | --- | --- | --- |
 | **Service** | **IP** | **Port** | 
@@ -17,8 +20,8 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 | Public Service Access | | 
 | --- | --- |
 | **Service** | **URL** 
-| Jellyfin | [movienight.paynepride.com](http://movienight.paynepride.com) | 
-| Piwigo | [www.paynepride.com](http://www.paynepride.com) | 
+| Jellyfin | [movienight.paynepride.com](https://movienight.paynepride.com) | 
+| Piwigo | [www.paynepride.com](https://www.paynepride.com) | 
 | VPN | [omitted]() | 
 
 >Note that the VPN service only has a CNAME so that wireguard doesn't have to have the public IP of the router changed all the time - it can just resolve it through the CNAME since Cloudflare always has the up-to-date public IP of our router via a Python script running in the Nginx container.
@@ -111,3 +114,7 @@ Codename `nightshade`. In order for wireguard to properly resolve the IP address
 
 ### Cloudflare
 The Dynamic DNS service is actually solved by using [this repo](https://github.com/adrienbrignon/cloudflare-ddns.git) where the Python script runs on the Nginx container.
+
+### Jitsi
+**Will be** hosted in Ubuntu VM in docker-compose, redirect to port 8000
+ 
