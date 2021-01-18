@@ -1,6 +1,17 @@
 Home Server Note
 ---
 
+- [ ] Home Assistant
+  - [ ] Temperature automation
+    - [ ] Smart thermostat vs microcontroller
+  - [ ] Security
+    - [ ] Acquire IP cameras
+    - [ ] Zoneminder?
+- [ ] Remote Monitoring
+  - [ ] Dashboard
+- [ ] Pi-hole
+  - [ ] Move to server
+
 Welcome to the PaynePride home server notes page!
 Here is where I keep track of set-up notes, known technical challenges, reset notes, etc.
 
@@ -11,11 +22,15 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 | --- | --- | --- |
 | **Service** | **IP** | **Port** | 
 | FreeNAS | [192.168.1.24](http://192.168.1.24) | | 
+| Nextcloud | [192.168.1.24:8282](http://192.168.1.24:8282)
 | Jellyfin | [192.168.1.235](http://192.168.1.235) | 8096 |
-| Pi-hole | [192.168.1.123](http://162.168.1.123) | |
+| Pi-hole | [192.168.1.227](http://162.168.1.227) | |
 | Piwigo | [192.168.1.124](http://192.168.1.124) | |
 | Nginx | [192.168.1.169](http://192.168.1.169) | |
 | Ubuntu VM | [192.168.1.212](http://192.168.1.212) | |
+| Jitsi | [192.168.1.213](https://192.168.1.213:8000) | 8000 (HTTPS Redirect) |
+| VPN | [192.168.1.111](http://192.168.1.111)
+> Jitsi is currently just brought up and down on demand in WSL on RyzenRender due to port issues when hosting in a Linux VM on Freenas
 
 | Public Service Access | | 
 | --- | --- |
@@ -23,6 +38,7 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 | Jellyfin | [movienight.paynepride.com](https://movienight.paynepride.com) | 
 | Piwigo | [www.paynepride.com](https://www.paynepride.com) | 
 | VPN | [omitted]() | 
+| Jitsi | [meet.paynepride.com](https://meet.paynepride.com) |
 
 >Note that the VPN service only has a CNAME so that wireguard doesn't have to have the public IP of the router changed all the time - it can just resolve it through the CNAME since Cloudflare always has the up-to-date public IP of our router via a Python script running in the Nginx container.
 
@@ -32,6 +48,7 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 - Pi-hole
 - Piwigo (image gallery)
 - Nginx
+    - Jitsi hosted in the same VM
 - General Ubuntu VM
 - VPN (wireguard)
 - Duplicati
@@ -108,6 +125,8 @@ This is running on my pi-zero W plugged in next the our router
 
 ### Nginx
 Followed [this tutorial](https://linuxhint.com/nginx_reverse_proxy/)
+
+For Nginx authentication, [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-nginx-on-ubuntu-14-04) is easy to follow.
 
 ### VPN
 Codename `nightshade`. In order for wireguard to properly resolve the IP address of our router for the VPN the CNAME can't use the cloudflare proxy, so cloudflare only has the DNS service setup (grey cloud, not the orange cloud)
