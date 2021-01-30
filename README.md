@@ -24,7 +24,8 @@ Here is where I keep track of set-up notes, known technical challenges, reset no
 | FreeNAS | [192.168.1.24](http://192.168.1.24) | | 
 | Nextcloud | [192.168.1.24:8282](http://192.168.1.24:8282)
 | Jellyfin | [192.168.1.235](http://192.168.1.235) | 8096 |
-| Pi-hole | [192.168.1.227](http://162.168.1.227) | |
+| **Unused Pi Zero** | [192.168.1.227](http://162.168.1.227) | |
+| Pi-hole on FreeNAS | [192.168.1.234](http://192.168.1.234/admin) | |
 | Piwigo | [192.168.1.124](http://192.168.1.124) | |
 | Nginx | [192.168.1.169](http://192.168.1.169) | |
 | Ubuntu VM | [192.168.1.212](http://192.168.1.212) | |
@@ -82,8 +83,6 @@ I set up all virtual machines ver similarly with the network configuration so th
         enp0s4:
           addresses: [192.168.1.{Static IP}/24]
           gateway4: 192.168.1.1
-          nameservers:
-            addresses: [8.8.4.4, 8.8.8.8]
     ```
    Then run `sudo netplan apply` and all should be right with the world
 
@@ -121,7 +120,7 @@ Jellyfin is our home media server. It runs in an Ubuntu 18.04-Server VM running 
 
 ### Pi-hole
 Network wide ad blocking. [Pi-hole](https://pi-hole.net/).
-This is running on my pi-zero W plugged in next the our router
+Pi Hole is running in a VM on the FreeNAS box (see ip in table). It is also set up as a recursive DNS server using unbound.
 
 ### Nginx
 Followed [this tutorial](https://linuxhint.com/nginx_reverse_proxy/)
