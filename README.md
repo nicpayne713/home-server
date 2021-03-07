@@ -10,7 +10,7 @@ Home Server Note
 - [ ] Remote Monitoring
   - [ ] Dashboard
 - [ ] Pi-hole
-  - [ ] Move to server
+  - [x] Move to server
 
 Welcome to the PaynePride home server notes page!
 Here is where I keep track of set-up notes, known technical challenges, reset notes, etc.
