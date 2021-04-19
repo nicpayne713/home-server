@@ -1,0 +1,59 @@
+version: '3'
+services:
+    reverse-proxy:
+        # The official v2 Traefik docker image
+        image: traefik:v2.4
+        # Enables the web UI and tells Traefik to listen to docker
+        command: --api.insecure=true --providers.docker
+        ports:
+            # The HTTP port
+            - "80:80"
+            #- "443:443"
+            # The Web UI (enabled by --api.insecure=true)
+            - "8080:8080"
+        volumes:
+            # So that Traefik can listen to the Docker events
+            - /var/run/docker.sock:/var/run/docker.sock
+    whoami:
+        # A container that exposes an API to show its IP address
+        image: traefik/whoami
+        labels:
+        - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+    jellyfin:
+        image: jellyfin/jellyfin:latest
+        container_name: jellyfin
+        environment:
+            - PUID=1000 - PGID=1000
+            - TZ=America/Chicago
+            ##- JELLYFIN_PublishedServerUrl=192.168.1.87 #optional
+            #- NVIDIA_VISIBLE_DEVICES=all
+        labels:
+            - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.docker.localhost`)"
+            - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
+            ##- "traefik.http.routers.jellyfin.entrypoints=websecure"
+            ##- "traefik.http.routers.jellyfin.tls.certresolver=myresolver"
+        ##networks:
+            ##- proxy
+        ##volumes:
+            ##- /path/to/library:/config
+            ##- /path/to/tvseries:/data/tvshows
+            ##- /path/to/movies:/data/movies
+            ##- /opt/vc/lib:/opt/vc/lib #optional
+        ports:
+            - 8096:8096
+            ##- 8920:8920 #optional
+            #- 7359:7359/udp #optional
+            #- 1900:1900/udp #optional
+        #deploy:
+            #resources:
+                #reservations:
+                    #devices:
+                    #- capabilities: [gpu]
+        ##devices:
+            ##- /dev/dri:/dev/dri #optional
+            ##- /dev/vcsm:/dev/vcsm #optional
+            ##- /dev/vchiq:/dev/vchiq #optional
+            ##- /dev/video10:/dev/video10 #optional
+            ##- /dev/video11:/dev/video11 #optional
+            ##- /dev/video12:/dev/video12 #optional
+        restart: unless-stopped
