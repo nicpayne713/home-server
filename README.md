@@ -1,19 +1,55 @@
-Home Server Note
+Home Server TODOs
 ---
+These are for when the 2 workstations are setup
+> Plan is to use [ansible-nas](https://github.com/davestephens/ansible-nas) for all services to run in the main linux VM
+- [ ] Ansible
+- [ ] Services
+  - [ ] Ansible-NAS
+    - [ ] Nextcloud
+    - [ ] Jellyfin
+    - [ ] Calibre Web
+    - [ ] Reverse proxy (Traefik)
+    - [ ] Torrent Downloader
+    - [ ] Watchtower
+    - [ ] Netdata
+    - [ ] Heimdall
+    - [ ] Jackett
+    - [ ] Guacamole
+    - [ ] Cloudflare DDNS
+    - [ ] Duplicati
+    - [ ] Home Assistant
+  - [ ] VMs:
+    - [ ] TrueNAS
+    - [ ] PfSense
+    - [ ] Security
+    - [ ] Linux Server 
+      - [ ] Pi-hole & Pivpn with Wireguard
+      - [ ] All the Ansible-NAS stuff
+      - [ ] All the Docker(-Compose) stuff
+  - [ ] Docker(-Compose):
+    - [ ] Jitsi
+    - [ ] Calibre
+    - [ ] Piwigo/Image Server
+    - [ ] Document Management (Mayan or Teedy)
+    - [ ] Portainer
+- [ ] Servers
+  - [ ] Rack system
+    - [ ] Proxmox
+    - [ ] Name it
+    - [ ] Buy 2x 4TB hard drives
+    - [ ] Dual gigabit network card
+    - [ ] PCIe -> SATA card
+  - [ ] Precision tower
+    - [ ] Name it
+    - [ ] Proxmox
+      - [ ] TrueNAS (VM)
+      - [ ] Proxmox Backup Server (VM)
 
-- [ ] Home Assistant
-  - [ ] Temperature automation
-    - [ ] Smart thermostat vs microcontroller
-  - [ ] Security
-    - [ ] Acquire IP cameras
-    - [ ] Zoneminder?
-- [ ] Remote Monitoring
-  - [ ] Dashboard
-- [ ] Pi-hole
-  - [x] Move to server
 
 Welcome to the PaynePride home server notes page!
 Here is where I keep track of set-up notes, known technical challenges, reset notes, etc.
+
+**NOTE** Everything below is for my current setup with the i5 box. All will be changed upon our move
 
 ![diagram](/docs/home-server-connectivity.png "Network")
 
@@ -129,10 +165,24 @@ For Nginx authentication, [this tutorial](https://www.digitalocean.com/community
 
 ### VPN
 Codename `nightshade`. In order for wireguard to properly resolve the IP address of our router for the VPN the CNAME can't use the cloudflare proxy, so cloudflare only has the DNS service setup (grey cloud, not the orange cloud)
+VPN was setup with [pivpn](https://docs.pivpn.io/)
+```bash
+Backup created in /home/nic/pivpnbackup/20210416-160700-pivpnwgbackup.tgz
+To restore the backup, follow instructions at:
+https://github.com/pivpn/pivpn/wiki/WireGuard#how-can-i-migrate-my-configs-to-another-pivpn-instance
+```
 
 ### Cloudflare
 The Dynamic DNS service is actually solved by using [this repo](https://github.com/adrienbrignon/cloudflare-ddns.git) where the Python script runs on the Nginx container.
 
 ### Jitsi
 **Will be** hosted in Ubuntu VM in docker-compose, redirect to port 8000
- 
+
+### Dad's Jellyfin Server
+Going to run on Raspberry Pi 3
+Users: `pi`, `jellyfin`
+Passwords: dad's new password with Julie
+Accessed via Wireguard
+  - SSH into Wireguard server at 192.168.1.111
+  - Jump to pi at 10.6.0.7
+The Wifi is setup in `/etc/wpa_supplicant` and static ip in `/etc/dhpcdp.conf`
