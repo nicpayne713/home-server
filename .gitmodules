@@ -1,0 +1,3 @@
+[submodule "ansible-nas"]
+	path = ansible-nas
+	url = https://github.com/nicpayne713/ansible-nas.git
