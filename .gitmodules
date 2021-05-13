@@ -1,6 +1,3 @@
-[submodule "ansible-nas"]
-	path = ansible-nas
-	url = https://github.com/nicpayne713/ansible-nas.git
 [submodule "ansible-role-docker-pihole"]
 	path = ansible-role-docker-pihole
 	url = https://github.com/nicpayne713/ansible-role-docker-pihole.git
