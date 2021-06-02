@@ -12,31 +12,33 @@ Home Server TODOs
       - [x] Portainer
       - [x] Netdata
       - [x] Heimdall
-      - [ ] Jackett
+      - [x] Jackett
       - [x] Guacamole
       - [x] Cloudflare DDNS
       - [x] Duplicati
       - [ ] Home Assistant
-      - [ ] Pi-hole
   - [ ] VMs:
     - [x] TrueNAS
     - [ ] PfSense
     - [ ] Security
     - [ ] Linux Server 
-      - [ ] Pivpn with Wireguard
+      - [ ] Pi-hole
+        - [ ] Unbound
+      - [ ] Pivpn with Wireguard (manual)
       - [ ] All the Ansible-NAS stuff
       - [ ] Docker(-Compose):
         - [ ] Jitsi
         - [ ] Calibre
         - [ ] Piwigo/Image Server
-        - [ ] Document Management (Mayan or Teedy)
+    - [ ] Document Management (Mayan or Teedy)
 - [ ] Servers
   - [ ] Rack system
     - [ ] Proxmox
     - [x] Name it
     - [x] Buy 2 1TB SAS drives
     - [ ] Dual gigabit network card
-    - [ ] PCIe -> SATA card
+    - ~[ ] PCIe -> SATA card~
+    - [x] RAID controller for passthrough
   - [ ] Precision tower
     - [x] Name it
     - [ ] Proxmox
@@ -44,7 +46,7 @@ Home Server TODOs
       - [ ] Proxmox Backup Server (VM)
     - [x] 2 4TB HDDs for TrueNAS
 - [ ] Roadmap
-  - [x] Set up services on TGP
+  - [ ] Set up services on TGP
   - [ ] Move services to Hogwarts
   - [ ] Torrenting stuff 
 
