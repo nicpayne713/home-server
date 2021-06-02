@@ -1,0 +1,3 @@
+[submodule "ansible-role-docker-pihole"]
+	path = ansible-role-docker-pihole
+	url = https://github.com/nicpayne713/ansible-role-docker-pihole.git
