@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-11T18:26:34.152Z" agent="5.0 (X11)" etag="-5llSnU0i0ORaGPjBIIV" version="14.8.5" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-07-11T18:32:28.061Z" agent="5.0 (X11)" etag="qAND01prBTaK_GRV2QV1" version="14.8.5" type="github" pages="2">
   <diagram id="niUmtduJiJVGNo5zQUts" name="Stage 1">
     <mxGraphModel dx="2062" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -267,8 +267,8 @@
         <mxCell id="uUhqn-4H62vzg1NEcZKA-28" value="Basement" style="fillColor=none;strokeColor=#5A6C86;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#5A6C86;" vertex="1" parent="1">
           <mxGeometry x="120" y="790" width="385.2" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="eCe_4PHRsF5Hg_1oEwV9-1" value="Need:&#xa;&#xa;2x 4 port PoE dummy switches. one at least needs to be PoE+&#xa;1x 8+ port managed switch&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
-          <mxGeometry x="120" y="30" width="360" height="80" as="geometry" />
+        <mxCell id="T8LA1klHZ6pPxG5DmPMx-1" value="Need:&lt;br&gt;&lt;br&gt;2x 4 port PoE dummy switches. one at least needs to be PoE+&lt;br&gt;1x 8+ port managed switch&lt;br&gt;4 PoE injectors for indoor cameras, or run power separate depending on the coax solution&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="79.7" y="20" width="295" height="178" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
